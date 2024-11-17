@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    ports:
+      - "25585:25565"
+    volumes:
+      - "./:/data"
+    environment:
+      EULA: "TRUE"
+      GAMEMODE: survival
+      DIFFICULTY: hard
+      VERSION: 1.19.2
+      MEMORY: 4G
+      ICON: "https://avatars.githubusercontent.com/u/43029469?v=4"
+      MOTD: "§q§lGerrudo's §kMinecraft §Unlimited §rServer"
+      TYPE: AUTO_CURSEFORGE
+      # allocate from https://console.curseforge.com/ and set in .env file
+      CF_API_KEY: ${CF_API_KEY}
+      CF_SLUG: hazardousdaniels-unlimited
+    restart: always
+
+volumes:
+  mc: {}
